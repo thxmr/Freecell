@@ -1,0 +1,120 @@
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <title>drag'n drop</title>
+
+    <style type="text/css">
+        div.carte {
+            display: inline-block;
+            width: 3rem;
+            font-size: 4rem;
+            border: lightgreen thick solid;
+            background: white;
+            box-shadow: 0 0 1px black;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+
+        div.carte.vide {
+            height: calc(4 * 1.2rem + 10px);
+            border-color: white;
+            box-shadow: 0 0 1px white;
+            -webkit-user-select: none; /* Opera / Safari all */
+            user-select: none;
+        }
+
+        *.red,*.rouge {
+            color:red;
+        }
+
+        *.black, *.noir {
+            color:black;
+        }
+
+        
+        div#plateau {
+            position: relative;
+            border: thin dashed gray;
+            width: 100%;
+            height: 30rem;
+        }
+
+
+        div#plateau  div.carte {
+            position: absolute;
+            z-index: 1;
+        }
+
+        
+        div.carte.vide:nth-child(1)
+        {
+            /* div#plateau  div.carte:nth-child(2)  changement de selecteur, pour eviter un "conflit" avec le drag'n drop */
+            left: calc(3rem + 8px + 1rem);
+        }
+
+
+        div.carte.vide:nth-child(2)
+        {
+            /* div#plateau  div.carte:nth-child(3) changement de selecteur, pour eviter un "conflit" avec le drag'n drop */
+            left: calc((3rem + 8px + 1rem) * 2);
+        }
+
+        div.carte.vide:nth-child(3)
+        {
+            /* div#plateau  div.carte:nth-child(4) changement de selecteur, pour eviter un "conflit" avec le drag'n drop */
+            left: calc((3rem + 8px + 1rem) * 3);
+        }
+
+        
+        div.carte.vide:nth-child(4)
+        {
+            left: calc((3rem + 8px + 1rem) * 4);
+        }
+
+        
+        div#plateau  div.carte span {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            font-size: 0.5rem;
+        }
+        
+    </style>
+
+    <script type="text/javascript" src="src/dragndrop.js"></script>
+    <script type="text/javascript" src="src/script.js"></script>
+
+</head>
+
+<body>
+<h1>Drag'n drop</h1>
+
+<template id="modeleCarte"><div class="carte" draggable="true"></div></template>
+
+<div id="plateau">
+<!--
+    <div class="carte red"  draggable="true" id="rouge7">7</div>
+
+    <div class="carte black"  draggable="true" id="noir8">8</div>
+
+
+    <div class="carte black"  draggable="true" id="noir6">6</div>
+
+    <div class="carte red"  draggable="true" id="rouge5">5</div>
+
+
+    <div class="carte red"  draggable="true" id="rouge7bis">7</div>
+-->
+    <div class="carte vide"></div>
+    <div class="carte vide"></div>
+    <div class="carte vide"></div>
+    <div class="carte vide"></div>
+
+
+</div>
+
+</body>
+</html>
